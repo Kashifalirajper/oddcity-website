@@ -287,7 +287,6 @@ footer { border-top: 1px solid var(--line); padding-block: var(--s5); color: var
 .duo .big { margin-top: var(--s2); font-size: var(--fs-h3); font-weight: 700; line-height: 1.2; }
 
 /* hero: the city drifts and the title lifts as you leave the plaza */
-.hero .dn img { transform: translate3d(0, calc(var(--hero, 0) * 70px), 0) scale(calc(1.04 + var(--hero, 0) * 0.08)); will-change: transform; }
 .hero-inner { transform: translate3d(0, calc(var(--hero, 0) * -90px), 0); opacity: calc(1 - var(--hero, 0) * 1.3); }
 .hero h1 .odd, .hero h1 .cty { display: inline-block; animation: drop 1.1s var(--ease-out) both; }
 .hero h1 .cty { animation-delay: 0.08s; }

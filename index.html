@@ -18,8 +18,10 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" as="font" type="font/woff" href="/fonts/barlow-700.woff" crossorigin>
 <link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/hero.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"ODDCITY","url":"https://oddcity.wraplet.app/","description":"A social party city: up to 10 players or bots, a secret mission each, one clock.","gamePlatform":"Android","applicationCategory":"Game","genre":["Party","Social","Open world"],"publisher":{"@type":"Organization","name":"Wraplet","email":"info@wraplet.app"},"image":"https://oddcity.wraplet.app/img/og.jpg"}</script>
 <script src="/app.js" defer></script>
+<script src="/hero.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -43,30 +45,38 @@
 
 <main id="main">
 
-<!-- 12:00 PM — the plaza -->
+<!-- 12:00 PM — the city tour -->
 <section class="hero" aria-labelledby="h-hero">
-  <div class="dn" aria-hidden="true">
+  <div class="hero-bg" aria-hidden="true">
     <picture>
-      <source type="image/avif" srcset="/img/plaza-day-1280.avif 1280w, /img/plaza-day-1920.avif 1920w, /img/plaza-day-2560.avif 2560w" sizes="100vw">
-      <img src="/img/plaza-day-1920.webp" srcset="/img/plaza-day-1280.webp 1280w, /img/plaza-day-1920.webp 1920w, /img/plaza-day-2560.webp 2560w" sizes="100vw" alt="" width="2560" height="1440" fetchpriority="high" decoding="async">
+      <source type="image/avif" srcset="/img/tour-poster-1280.avif 1280w, /img/tour-poster-1920.avif 1920w" sizes="100vw">
+      <img src="/img/tour-poster-1920.webp" srcset="/img/tour-poster-1280.webp 1280w, /img/tour-poster-1920.webp 1920w" sizes="100vw" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
     </picture>
-    <picture class="night">
-      <source type="image/avif" data-night="/img/plaza-night-1280.avif 1280w, /img/plaza-night-1920.avif 1920w, /img/plaza-night-2560.avif 2560w" sizes="100vw">
-      <img data-night="/img/plaza-night-1280.webp 1280w, /img/plaza-night-1920.webp 1920w, /img/plaza-night-2560.webp 2560w" sizes="100vw" alt="" width="2560" height="1440" decoding="async">
-    </picture>
+    <video class="tour" muted loop playsinline preload="none" data-src-small="/video/tour-1280.mp4" data-src-large="/video/tour-1920.mp4"></video>
   </div>
+
+  <div class="floaters" aria-hidden="true">
+    <div class="card-secret c1"><i></i><b>?</b><span>SECRET</span></div>
+    <div class="card-secret c2"><i></i><b>?</b><span>SECRET</span></div>
+    <div class="card-secret c3"><i></i><b>?</b><span>SECRET</span></div>
+    <img class="face f1" src="/img/res-maya.webp" alt="" width="80" height="80">
+    <img class="face f2" src="/img/res-jack.webp" alt="" width="80" height="80">
+    <img class="face f3" src="/img/res-luna.webp" alt="" width="80" height="80">
+    <img class="face f4" src="/img/res-zara.webp" alt="" width="80" height="80">
+  </div>
+
   <div class="wrap hero-inner">
-    <p class="label c-yellow">Central Plaza · 12:00 PM</p>
-    <h1 id="h-hero"><span class="odd">ODD</span><span class="cty">CITY</span></h1>
+    <p class="tour-chip"><span class="dot"></span><span class="label">Live city tour</span><span class="where" data-where>Central Plaza</span></p>
+    <h1 id="h-hero" class="logo"><span class="odd">ODD</span><span class="cty">CITY</span></h1>
     <p class="tag">EVERYONE HAS A SECRET</p>
-    <p class="lede">A social party city on your phone. Up to ten people, ten secret missions, one clock. Nobody knows what you're up to — until the reveal.</p>
+    <p class="lede">A social party city on your phone. Up to ten people, ten secret missions, one clock. Nobody knows what you&rsquo;re up to &mdash; until the reveal.</p>
     <div class="cta">
       <a class="btn" href="#play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5L7 4.5Z"/></svg>Play the closed test</a>
       <a class="btn ghost" href="#trailer">Watch the trailer</a>
     </div>
     <div class="meta"><span class="label">Android</span><span class="label">Free</span><span class="label">Ages 13+</span><span class="label">Online or solo</span></div>
-    <div class="scroll-hint" aria-hidden="true"><span class="bar"><i></i></span><span class="label">Scroll to move the clock · tap anywhere</span></div>
   </div>
+  <div class="scroll-hint" aria-hidden="true"><span class="mouse"><i></i></span><span class="label">Scroll to move the clock &middot; tap anywhere</span></div>
 </section>
 
 <!-- Residents -->
