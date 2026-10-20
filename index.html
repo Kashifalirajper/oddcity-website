@@ -17,7 +17,6 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" as="font" type="font/woff" href="/fonts/barlow-700.woff" crossorigin>
-<link rel="preload" as="image" type="image/avif" imagesrcset="/img/plaza-day-1280.avif 1280w, /img/plaza-day-1920.avif 1920w, /img/plaza-day-2560.avif 2560w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"ODDCITY","url":"https://oddcity.wraplet.app/","description":"A social party city: up to 10 players or bots, a secret mission each, one clock.","gamePlatform":"Android","applicationCategory":"Game","genre":["Party","Social","Open world"],"publisher":{"@type":"Organization","name":"Wraplet","email":"info@wraplet.app"},"image":"https://oddcity.wraplet.app/img/og.jpg"}</script>
 <script src="/app.js" defer></script>
@@ -25,7 +24,7 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="hud">
+<header class="hud"><span class="hud-progress" aria-hidden="true"></span>
   <a class="brand" href="/" aria-label="ODDCITY home"><img src="/img/icon.jpg" alt="" width="40" height="40"><span>ODD<b>CITY</b></span></a>
   <nav class="nav" aria-label="Sections">
     <a href="#secrets">Secrets</a><a href="#how">How to play</a><a href="#city">The city</a><a href="#together">Friends</a>
@@ -58,7 +57,7 @@
   </div>
   <div class="wrap hero-inner">
     <p class="label c-yellow">Central Plaza · 12:00 PM</p>
-    <h1 id="h-hero"><span class="odd">ODD</span>CITY</h1>
+    <h1 id="h-hero"><span class="odd">ODD</span><span class="cty">CITY</span></h1>
     <p class="tag">EVERYONE HAS A SECRET</p>
     <p class="lede">A social party city on your phone. Up to ten people, ten secret missions, one clock. Nobody knows what you're up to — until the reveal.</p>
     <div class="cta">
@@ -66,7 +65,7 @@
       <a class="btn ghost" href="#trailer">Watch the trailer</a>
     </div>
     <div class="meta"><span class="label">Android</span><span class="label">Free</span><span class="label">Ages 13+</span><span class="label">Online or solo</span></div>
-    <div class="scroll-hint" aria-hidden="true"><span class="bar"><i></i></span><span class="label">Scroll to move the clock</span></div>
+    <div class="scroll-hint" aria-hidden="true"><span class="bar"><i></i></span><span class="label">Scroll to move the clock · tap anywhere</span></div>
   </div>
 </section>
 
@@ -78,7 +77,7 @@
       <h2 id="h-secrets">Everyone has a secret</h2>
       <p>Every match deals each player two or three secret missions. The residents have them too. Go on — peek.</p>
     </div>
-    <div class="residents" data-reveal>
+    <div class="residents stagger" data-reveal>
       <article class="res" style="--c: var(--aqua)">
         <div class="res-top"><img src="/img/res-maya.webp" alt="MAYA, smiling, long dark hair" width="76" height="76" loading="lazy" decoding="async"><div><h3>MAYA</h3><p class="label">The sweet helper</p></div></div>
         <div class="face"><span class="tag-pill">SIDE · +2 FAME</span><p class="hidden-secret" aria-hidden="true">Help a person 3 times</p><p class="hint">Return lost bags, fix lamps, answer calls for help.</p></div>
@@ -124,15 +123,15 @@
     <ol class="steps" role="list">
       <li class="step" data-reveal style="--c: var(--violet)">
         <div class="step-text"><span class="step-num" aria-hidden="true">01</span><h3>Get your secrets</h3><p>Two or three missions, each with a how-to. Don't like one? Swap it for free in the first minute.</p></div>
-        <div class="shot"><picture><source type="image/avif" srcset="/img/shot-secrets-720.avif 720w, /img/shot-secrets-1200.avif 1200w" sizes="(max-width: 860px) 100vw, 55vw"><img src="/img/shot-secrets-1200.webp" srcset="/img/shot-secrets-720.webp 720w, /img/shot-secrets-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 55vw" alt="In the plaza: the Secrets panel shows Help a person 2 times and Do 7 emotes" width="1200" height="540" loading="lazy" decoding="async"></picture></div>
+        <div class="shot"><video class="loop" muted loop playsinline preload="none" poster="/video/loop-secrets.jpg" data-src="/video/loop-secrets.mp4" width="1200" height="540" aria-label="Gameplay: opening the Secrets panel in the plaza"></video><span class="live" aria-hidden="true">LIVE GAMEPLAY</span></div>
       </li>
       <li class="step" data-reveal style="--c: var(--yellow)">
         <div class="step-text"><span class="step-num" aria-hidden="true">02</span><h3>Do them your way</h3><p>Walk, drive, take a job, make a deal, start trouble. Stuck? Tap WHAT NOW? and follow the yellow path.</p></div>
-        <div class="shot"><picture><source type="image/avif" srcset="/img/shot-path-720.avif 720w, /img/shot-path-1200.avif 1200w" sizes="(max-width: 860px) 100vw, 55vw"><img src="/img/shot-path-1200.webp" srcset="/img/shot-path-720.webp 720w, /img/shot-path-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 55vw" alt="A yellow path on the ground leads to the City Helper, 124 metres away" width="1200" height="540" loading="lazy" decoding="async"></picture></div>
+        <div class="shot"><video class="loop" muted loop playsinline preload="none" poster="/video/loop-path.jpg" data-src="/video/loop-path.mp4" width="1200" height="540" aria-label="Gameplay: WHAT NOW? draws a yellow path to the next step"></video><span class="live" aria-hidden="true">LIVE GAMEPLAY</span></div>
       </li>
       <li class="step" data-reveal style="--c: var(--aqua)">
         <div class="step-text"><span class="step-num" aria-hidden="true">03</span><h3>The reveal</h3><p>When the clock hits zero, every secret is turned over. Most Fame wins — and climbs the Top Players board.</p></div>
-        <div class="shot"><picture><source type="image/avif" srcset="/img/shot-phone-720.avif 720w, /img/shot-phone-1200.avif 1200w" sizes="(max-width: 860px) 100vw, 55vw"><img src="/img/shot-phone-1200.webp" srcset="/img/shot-phone-720.webp 720w, /img/shot-phone-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 55vw" alt="The City Phone: map, jobs, contacts, objectives, vehicles, settings, voice, home and help" width="1200" height="540" loading="lazy" decoding="async"></picture></div>
+        <div class="shot"><video class="loop" muted loop playsinline preload="none" poster="/video/loop-phone.jpg" data-src="/video/loop-phone.mp4" width="1200" height="540" aria-label="Gameplay: opening the City Phone"></video><span class="live" aria-hidden="true">LIVE GAMEPLAY</span></div>
       </li>
     </ol>
   </div>
@@ -194,10 +193,10 @@
       <div class="shot" data-reveal><picture><source type="image/avif" srcset="/img/shot-drive-720.avif 720w, /img/shot-drive-1200.avif 1200w" sizes="(max-width: 860px) 100vw, 55vw"><img src="/img/shot-drive-1200.webp" srcset="/img/shot-drive-720.webp 720w, /img/shot-drive-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 55vw" alt="Riding a scooter down a shopping street, steering wheel on the left of the screen" width="1200" height="540" loading="lazy" decoding="async"></picture></div>
       <div data-reveal>
         <p class="label">Get in. Steer with the wheel.</p>
-        <ul class="chips" aria-label="Vehicles">
+        <ul class="chips stagger" data-reveal aria-label="Vehicles">
           <li>Compact</li><li>Sedan</li><li>SUV</li><li>Taxi</li><li>Sports</li><li>Van</li><li>Truck</li><li>Police</li><li>Scooter</li><li>Motorbike</li>
         </ul>
-        <ul class="jobs">
+        <ul class="jobs stagger" data-reveal>
           <li style="--c: var(--yellow)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/></svg></span><div><b>Courier rush</b><span>Three parcels, three doors, any order.</span></div></li>
           <li style="--c: var(--coral)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 9h12v5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9ZM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 2.5c0 1.5 1.5 1.5 1.5 3M12 2.5c0 1.5 1.5 1.5 1.5 3"/></svg></span><div><b>Coffee & pizza runs</b><span>Hot food, short fuse. Drive gently for a tip.</span></div></li>
           <li style="--c: var(--aqua)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 5 3.3 8.6 7.5 10 4.2-1.4 7.5-5 7.5-10v-6L12 2.5Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Police shift</b><span>Tackle, cuff, paperwork. No weapons, ever.</span></div></li>
@@ -215,7 +214,11 @@
       <h2 id="h-together">Bring the whole group chat</h2>
       <p>Quick Match drops you into a live city. A private room gives your friends a six-letter code.</p>
     </div>
-    <div class="together" data-reveal>
+    <div class="duo" data-reveal>
+      <div class="shot"><video class="loop" muted loop playsinline preload="none" poster="/video/loop-emote.jpg" data-src="/video/loop-emote.mp4" width="1200" height="540" aria-label="Gameplay: the emote wheel, then a dance in the plaza"></video><span class="live" aria-hidden="true">LIVE GAMEPLAY</span></div>
+      <div class="duo-text"><p class="label c-yellow">Say it with a dance</p><p class="big">Wave, laugh, cheer, dance. Walk up to anyone and tap <b>Interact</b> to talk, trade or team up.</p></div>
+    </div>
+    <div class="together stagger" data-reveal>
       <div class="feat" style="--c: var(--aqua)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6.5 6.5 0 0 1 3.5 6"/></svg></span><h3>Quick Match</h3><p>Online in seconds. Bots fill any empty seats.</p></div>
       <div class="feat" style="--c: var(--violet)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><h3>Private rooms</h3><p>Share a code like <b>ABC123</b>. Up to six friends.</p></div>
       <div class="feat" style="--c: var(--yellow)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3.5"/></svg></span><h3>Nearby voice</h3><p>Talk to whoever's standing next to you — or call someone across town.</p></div>
@@ -253,5 +256,6 @@
     <nav aria-label="Legal"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/delete-data.html">Delete my data</a><a href="/support.html">Support</a></nav>
   </div>
 </footer>
+<div class="bursts" aria-hidden="true"></div>
 </body>
 </html>
