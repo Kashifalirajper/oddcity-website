@@ -213,7 +213,8 @@ section { position: relative; }
 /* ---------------------------------------------------------------- midnight */
 .midnight { position: relative; min-height: 92svh; display: grid; align-items: center; isolation: isolate; text-align: center; }
 .midnight .dn { position: absolute; inset: 0; z-index: -1; }
-.midnight::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at center, rgb(11 14 34 / 0.55), rgb(11 14 34 / 0.92) 75%), linear-gradient(var(--bg), transparent 20%, transparent 80%, var(--bg)); }
+.midnight::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at center, rgb(11 14 34 / 0.55), rgb(11 14 34 / 0.92) 75%); }
+.midnight .dn { -webkit-mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent); mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent); }
 .midnight .time { font-size: var(--fs-label); font-weight: 700; letter-spacing: var(--track-label); color: var(--yellow); }
 .midnight h2 { margin-top: var(--s2); font-size: clamp(3rem, 9vw, 7.5rem); }
 .midnight p { margin: var(--s3) auto 0; max-width: 42ch; color: #dfe4ff; font-size: var(--fs-lede); }
