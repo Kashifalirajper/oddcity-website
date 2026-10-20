@@ -2,57 +2,256 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>ODDCITY — Everyone has a secret</title>
-<meta name="description" content="ODDCITY is a social party city game: you and up to 9 players or bots, a secret mission each, 9 minutes of polite chaos. Drive, meet, explore and vote for Mayor.">
+<meta name="description" content="A social party city on your phone. Up to 10 players and bots, a secret mission each, one clock. Drive, chat, work, vote for Mayor — and see who was up to what at the reveal.">
+<meta name="theme-color" content="#0b0e22">
+<link rel="canonical" href="https://oddcity.wraplet.app/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://oddcity.wraplet.app/">
 <meta property="og:title" content="ODDCITY — Everyone has a secret">
-<meta property="og:description" content="A social party city. You + sneaky residents. 9 minutes of polite chaos.">
-<meta property="og:image" content="https://oddcity.wraplet.app/img/menu.jpg">
-<link rel="icon" href="img/icon.jpg">
-<link rel="stylesheet" href="style.css">
+<meta property="og:description" content="A social party city. Ten people, ten secret missions, one clock.">
+<meta property="og:image" content="https://oddcity.wraplet.app/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" as="font" type="font/woff" href="/fonts/barlow-700.woff" crossorigin>
+<link rel="preload" as="image" type="image/avif" imagesrcset="/img/plaza-day-1280.avif 1280w, /img/plaza-day-1920.avif 1920w, /img/plaza-day-2560.avif 2560w" imagesizes="100vw" fetchpriority="high">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"ODDCITY","url":"https://oddcity.wraplet.app/","description":"A social party city: up to 10 players or bots, a secret mission each, one clock.","gamePlatform":"Android","applicationCategory":"Game","genre":["Party","Social","Open world"],"publisher":{"@type":"Organization","name":"Wraplet","email":"info@wraplet.app"},"image":"https://oddcity.wraplet.app/img/og.jpg"}</script>
+<script src="/app.js" defer></script>
 </head>
 <body>
-<header><div class="wrap">
-  <a class="brand" href="/"><img src="img/icon.jpg" alt="">ODD<b>CITY</b></a>
-  <nav><a href="#features">Features</a><a href="privacy.html">Privacy</a><a href="support.html">Support</a></nav>
-</div></header>
+<a class="skip" href="#main">Skip to content</a>
 
-<section class="hero"><div class="wrap">
-  <h1><span>ODD</span>CITY</h1>
-  <div class="tag">EVERYONE HAS A SECRET</div>
-  <p>A social party city. You and up to 9 players or bots each get a secret mission. Drive, chat, trade, vote for Mayor — and find out who was up to what in the big reveal.</p>
-  <a class="btn" href="#get">Get the game</a><a class="btn ghost" href="#features">See features</a>
-  <img class="shot" src="img/menu.jpg" alt="ODDCITY main menu">
-</div></section>
-
-<section id="features"><div class="wrap">
-  <h2>What you can do</h2>
-  <div class="grid">
-    <div class="card"><span class="dot" style="background:var(--violet)"></span><h3>Secret missions</h3><p>Three secrets per match, many ways to finish each one. Trust no one.</p></div>
-    <div class="card"><span class="dot" style="background:var(--aqua)"></span><h3>Drive anything</h3><p>City cars, SUVs, taxis, police cars, scooters — even borrow a parked car.</p></div>
-    <div class="card"><span class="dot" style="background:var(--yellow)"></span><h3>Jobs &amp; cash</h3><p>Deliver pizza and coffee, drive a taxi, race, or work a police shift.</p></div>
-    <div class="card"><span class="dot" style="background:var(--coral)"></span><h3>Play together</h3><p>Quick Match or a private room code. Nearby voice chat and private calls.</p></div>
-    <div class="card"><span class="dot" style="background:var(--violet)"></span><h3>Vote for Mayor</h3><p>Campaign, make deals, win the election and unlock city powers.</p></div>
-    <div class="card"><span class="dot" style="background:var(--aqua)"></span><h3>Your style, your home</h3><p>Customize your character and your neon loft, earn trophies and titles.</p></div>
+<header class="hud">
+  <a class="brand" href="/" aria-label="ODDCITY home"><img src="/img/icon.jpg" alt="" width="40" height="40"><span>ODD<b>CITY</b></span></a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#secrets">Secrets</a><a href="#how">How to play</a><a href="#city">The city</a><a href="#together">Friends</a>
+  </nav>
+  <div class="hud-right">
+    <div class="clock" data-clock role="img" aria-label="City clock: scrolling moves the city from noon to midnight">
+      <span class="icon" aria-hidden="true">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z"/></svg>
+      </span>
+      <span class="time" aria-hidden="true">12:00 PM</span>
+    </div>
+    <a class="btn small" href="#play">Join the test</a>
   </div>
-  <div class="gallery">
-    <img src="img/plaza.jpg" alt="Central Plaza with fountain">
-    <img src="img/onfoot.jpg" alt="On-foot gameplay">
-    <img src="img/driving.jpg" alt="Driving a scooter">
-    <img src="img/rain.jpg" alt="Downtown at night in the rain">
-    <img src="img/profile.jpg" alt="Character creator">
-    <img src="img/home.jpg" alt="Player home loft">
+</header>
+
+<main id="main">
+
+<!-- 12:00 PM — the plaza -->
+<section class="hero" aria-labelledby="h-hero">
+  <div class="dn" aria-hidden="true">
+    <picture>
+      <source type="image/avif" srcset="/img/plaza-day-1280.avif 1280w, /img/plaza-day-1920.avif 1920w, /img/plaza-day-2560.avif 2560w" sizes="100vw">
+      <img src="/img/plaza-day-1920.webp" srcset="/img/plaza-day-1280.webp 1280w, /img/plaza-day-1920.webp 1920w, /img/plaza-day-2560.webp 2560w" sizes="100vw" alt="" width="2560" height="1440" fetchpriority="high" decoding="async">
+    </picture>
+    <picture class="night">
+      <source type="image/avif" data-night="/img/plaza-night-1280.avif 1280w, /img/plaza-night-1920.avif 1920w, /img/plaza-night-2560.avif 2560w" sizes="100vw">
+      <img data-night="/img/plaza-night-1280.webp 1280w, /img/plaza-night-1920.webp 1920w, /img/plaza-night-2560.webp 2560w" sizes="100vw" alt="" width="2560" height="1440" decoding="async">
+    </picture>
   </div>
-</div></section>
+  <div class="wrap hero-inner">
+    <p class="label c-yellow">Central Plaza · 12:00 PM</p>
+    <h1 id="h-hero"><span class="odd">ODD</span>CITY</h1>
+    <p class="tag">EVERYONE HAS A SECRET</p>
+    <p class="lede">A social party city on your phone. Up to ten people, ten secret missions, one clock. Nobody knows what you're up to — until the reveal.</p>
+    <div class="cta">
+      <a class="btn" href="#play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5L7 4.5Z"/></svg>Play the closed test</a>
+      <a class="btn ghost" href="#trailer">Watch the trailer</a>
+    </div>
+    <div class="meta"><span class="label">Android</span><span class="label">Free</span><span class="label">Ages 13+</span><span class="label">Online or solo</span></div>
+    <div class="scroll-hint" aria-hidden="true"><span class="bar"><i></i></span><span class="label">Scroll to move the clock</span></div>
+  </div>
+</section>
 
-<section id="get"><div class="wrap" style="text-align:center;padding-bottom:60px">
-  <h2>Coming soon to Google Play</h2>
-  <p class="muted">ODDCITY is in closed testing on Android. Want to join the test? Contact us on the <a href="support.html">support page</a>.</p>
-</div></section>
+<!-- Residents -->
+<section class="sec" id="secrets" aria-labelledby="h-secrets">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="kicker c-violet">The residents</span>
+      <h2 id="h-secrets">Everyone has a secret</h2>
+      <p>Every match deals each player two or three secret missions. The residents have them too. Go on — peek.</p>
+    </div>
+    <div class="residents" data-reveal>
+      <article class="res" style="--c: var(--aqua)">
+        <div class="res-top"><img src="/img/res-maya.webp" alt="MAYA, smiling, long dark hair" width="76" height="76" loading="lazy" decoding="async"><div><h3>MAYA</h3><p class="label">The sweet helper</p></div></div>
+        <div class="face"><span class="tag-pill">SIDE · +2 FAME</span><p class="hidden-secret" aria-hidden="true">Help a person 3 times</p><p class="hint">Return lost bags, fix lamps, answer calls for help.</p></div>
+        <button type="button" aria-expanded="false">Reveal secret</button>
+      </article>
+      <article class="res" style="--c: var(--violet)">
+        <div class="res-top"><img src="/img/res-jack.webp" alt="JACK in a black cap with a crown" width="76" height="76" loading="lazy" decoding="async"><div><h3>JACK</h3><p class="label">Money-hungry troublemaker</p></div></div>
+        <div class="face"><span class="tag-pill">SIDE · +2 FAME</span><p class="hidden-secret" aria-hidden="true">Get a police star, stay free</p><p class="hint">Earn at least one star and never get caught.</p></div>
+        <button type="button" aria-expanded="false">Reveal secret</button>
+      </article>
+      <article class="res" style="--c: var(--yellow)">
+        <div class="res-top"><img src="/img/res-luna.webp" alt="LUNA with red hair in a bun" width="76" height="76" loading="lazy" decoding="async"><div><h3>LUNA</h3><p class="label">Social butterfly</p></div></div>
+        <div class="face"><span class="tag-pill">SIDE · +2 FAME</span><p class="hidden-secret" aria-hidden="true">Get 2 players to follow you</p><p class="hint">Ask people to FOLLOW ME, or hire them with a contract.</p></div>
+        <button type="button" aria-expanded="false">Reveal secret</button>
+      </article>
+      <article class="res" style="--c: var(--coral)">
+        <div class="res-top"><img src="/img/res-leo.webp" alt="LEO with twists" width="76" height="76" loading="lazy" decoding="async"><div><h3>LEO</h3><p class="label">Driver, risk taker</p></div></div>
+        <div class="face"><span class="tag-pill">WILD · +1 FAME</span><p class="hidden-secret" aria-hidden="true">Drive a red car at the end</p><p class="hint">Be in the driver seat of a red vehicle when the clock hits zero.</p></div>
+        <button type="button" aria-expanded="false">Reveal secret</button>
+      </article>
+      <article class="res" style="--c: var(--aqua)">
+        <div class="res-top"><img src="/img/res-noah.webp" alt="NOAH with curly hair and round glasses" width="76" height="76" loading="lazy" decoding="async"><div><h3>NOAH</h3><p class="label">Quiet strategist</p></div></div>
+        <div class="face"><span class="tag-pill">SIDE · +2 FAME</span><p class="hidden-secret" aria-hidden="true">Never go to the Bank</p><p class="hint">Stay out of the Bank district all match. Why? He won't say.</p></div>
+        <button type="button" aria-expanded="false">Reveal secret</button>
+      </article>
+      <article class="res" style="--c: var(--violet)">
+        <div class="res-top"><img src="/img/res-zara.webp" alt="ZARA with braids and sunglasses" width="76" height="76" loading="lazy" decoding="async"><div><h3>ZARA</h3><p class="label">Speed demon</p></div></div>
+        <div class="face"><span class="tag-pill">MAIN · +3 FAME</span><p class="hidden-secret" aria-hidden="true">Win a race</p><p class="hint">Join a race at the race start and cross the line first.</p></div>
+        <button type="button" aria-expanded="false">Reveal secret</button>
+      </article>
+    </div>
+  </div>
+</section>
 
-<footer><div class="wrap">
-  <div>© 2026 Wraplet · ODDCITY · <a href="mailto:info@wraplet.app">info@wraplet.app</a></div>
-  <div><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="delete-data.html">Delete my data</a><a href="support.html">Support</a></div>
-</div></footer>
+<!-- How a match works -->
+<section class="sec" id="how" aria-labelledby="h-how">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="kicker c-aqua">How to play</span>
+      <h2 id="h-how">One match. One clock.</h2>
+      <p>Matches last 6 to 12 minutes. You pick the length, how tricky the secrets are, and how many bots fill the streets.</p>
+    </div>
+    <ol class="steps" role="list">
+      <li class="step" data-reveal style="--c: var(--violet)">
+        <div class="step-text"><span class="step-num" aria-hidden="true">01</span><h3>Get your secrets</h3><p>Two or three missions, each with a how-to. Don't like one? Swap it for free in the first minute.</p></div>
+        <div class="shot"><picture><source type="image/avif" srcset="/img/shot-secrets-720.avif 720w, /img/shot-secrets-1200.avif 1200w" sizes="(max-width: 860px) 100vw, 55vw"><img src="/img/shot-secrets-1200.webp" srcset="/img/shot-secrets-720.webp 720w, /img/shot-secrets-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 55vw" alt="In the plaza: the Secrets panel shows Help a person 2 times and Do 7 emotes" width="1200" height="540" loading="lazy" decoding="async"></picture></div>
+      </li>
+      <li class="step" data-reveal style="--c: var(--yellow)">
+        <div class="step-text"><span class="step-num" aria-hidden="true">02</span><h3>Do them your way</h3><p>Walk, drive, take a job, make a deal, start trouble. Stuck? Tap WHAT NOW? and follow the yellow path.</p></div>
+        <div class="shot"><picture><source type="image/avif" srcset="/img/shot-path-720.avif 720w, /img/shot-path-1200.avif 1200w" sizes="(max-width: 860px) 100vw, 55vw"><img src="/img/shot-path-1200.webp" srcset="/img/shot-path-720.webp 720w, /img/shot-path-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 55vw" alt="A yellow path on the ground leads to the City Helper, 124 metres away" width="1200" height="540" loading="lazy" decoding="async"></picture></div>
+      </li>
+      <li class="step" data-reveal style="--c: var(--aqua)">
+        <div class="step-text"><span class="step-num" aria-hidden="true">03</span><h3>The reveal</h3><p>When the clock hits zero, every secret is turned over. Most Fame wins — and climbs the Top Players board.</p></div>
+        <div class="shot"><picture><source type="image/avif" srcset="/img/shot-phone-720.avif 720w, /img/shot-phone-1200.avif 1200w" sizes="(max-width: 860px) 100vw, 55vw"><img src="/img/shot-phone-1200.webp" srcset="/img/shot-phone-720.webp 720w, /img/shot-phone-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 55vw" alt="The City Phone: map, jobs, contacts, objectives, vehicles, settings, voice, home and help" width="1200" height="540" loading="lazy" decoding="async"></picture></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Districts: the clock turns them to night -->
+<section class="sec" id="city" aria-labelledby="h-city">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="kicker c-yellow">The city</span>
+      <h2 id="h-city">Twelve districts. One day.</h2>
+      <p>Every match runs from noon to night. Keep scrolling and watch the lights come on.</p>
+    </div>
+    <div class="districts">
+      <div class="district" data-reveal>
+        <div class="dn">
+          <picture><source type="image/avif" srcset="/img/downtown-day-800.avif 800w, /img/downtown-day-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 58vw"><img src="/img/downtown-day-1400.webp" srcset="/img/downtown-day-800.webp 800w, /img/downtown-day-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 58vw" alt="Downtown avenue under the ODDCITY bridge" width="1400" height="788" loading="lazy" decoding="async"></picture>
+          <picture class="night" aria-hidden="true"><source type="image/avif" data-night="/img/downtown-night-800.avif 800w, /img/downtown-night-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 58vw"><img data-night="/img/downtown-night-800.webp 800w, /img/downtown-night-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 58vw" alt="" width="1400" height="788" loading="lazy" decoding="async"></picture>
+        </div>
+        <div class="district-meta"><h3>Downtown</h3><span class="label">Bank · Shops · Taxis</span></div>
+        <p>Where the money is, and where Noah refuses to go.</p>
+      </div>
+      <div class="district" data-reveal>
+        <div class="dn">
+          <picture><source type="image/avif" srcset="/img/park-day-800.avif 800w, /img/park-day-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 42vw"><img src="/img/park-day-1400.webp" srcset="/img/park-day-800.webp 800w, /img/park-day-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 42vw" alt="City Park with picnic tables and a food truck" width="1400" height="788" loading="lazy" decoding="async"></picture>
+          <picture class="night" aria-hidden="true"><source type="image/avif" data-night="/img/park-night-800.avif 800w, /img/park-night-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 42vw"><img data-night="/img/park-night-800.webp 800w, /img/park-night-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 42vw" alt="" width="1400" height="788" loading="lazy" decoding="async"></picture>
+        </div>
+        <div class="district-meta"><h3>City Park</h3><span class="label">Swings · Goals · Dog walks</span></div>
+        <p>Swing higher, score a goal, lose the dog. Classic.</p>
+      </div>
+      <div class="district" data-reveal>
+        <div class="dn">
+          <picture><source type="image/avif" srcset="/img/avenue-day-800.avif 800w, /img/avenue-day-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 42vw"><img src="/img/avenue-day-1400.webp" srcset="/img/avenue-day-800.webp 800w, /img/avenue-day-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 42vw" alt="The long city avenue lined with palm trees" width="1400" height="788" loading="lazy" decoding="async"></picture>
+          <picture class="night" aria-hidden="true"><source type="image/avif" data-night="/img/avenue-night-800.avif 800w, /img/avenue-night-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 42vw"><img data-night="/img/avenue-night-800.webp 800w, /img/avenue-night-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 42vw" alt="" width="1400" height="788" loading="lazy" decoding="async"></picture>
+        </div>
+        <div class="district-meta"><h3>The Avenue</h3><span class="label">Races · Couriers</span></div>
+        <p>The fastest way across town. Zara knows every light.</p>
+      </div>
+      <div class="district" data-reveal>
+        <div class="dn">
+          <picture><source type="image/avif" srcset="/img/beach-day-800.avif 800w, /img/beach-day-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 58vw"><img src="/img/beach-day-1400.webp" srcset="/img/beach-day-800.webp 800w, /img/beach-day-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 58vw" alt="The beach district arch and boardwalk by the sea" width="1400" height="788" loading="lazy" decoding="async"></picture>
+          <picture class="night" aria-hidden="true"><source type="image/avif" data-night="/img/beach-night-800.avif 800w, /img/beach-night-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 58vw"><img data-night="/img/beach-night-800.webp 800w, /img/beach-night-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 58vw" alt="" width="1400" height="788" loading="lazy" decoding="async"></picture>
+        </div>
+        <div class="district-meta"><h3>Waterfront</h3><span class="label">Street shows · Sunset</span></div>
+        <p>Catch the sunset here when time runs out. Someone's secret depends on it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Drive + jobs -->
+<section class="sec" id="drive" aria-labelledby="h-drive">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="kicker c-coral">Wheels & work</span>
+      <h2 id="h-drive">Drive anything. Earn your way.</h2>
+    </div>
+    <div class="drive">
+      <div class="shot" data-reveal><picture><source type="image/avif" srcset="/img/shot-drive-720.avif 720w, /img/shot-drive-1200.avif 1200w" sizes="(max-width: 860px) 100vw, 55vw"><img src="/img/shot-drive-1200.webp" srcset="/img/shot-drive-720.webp 720w, /img/shot-drive-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 55vw" alt="Riding a scooter down a shopping street, steering wheel on the left of the screen" width="1200" height="540" loading="lazy" decoding="async"></picture></div>
+      <div data-reveal>
+        <p class="label">Get in. Steer with the wheel.</p>
+        <ul class="chips" aria-label="Vehicles">
+          <li>Compact</li><li>Sedan</li><li>SUV</li><li>Taxi</li><li>Sports</li><li>Van</li><li>Truck</li><li>Police</li><li>Scooter</li><li>Motorbike</li>
+        </ul>
+        <ul class="jobs">
+          <li style="--c: var(--yellow)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z"/><path d="m3 7.5 9 4.5 9-4.5M12 12v9"/></svg></span><div><b>Courier rush</b><span>Three parcels, three doors, any order.</span></div></li>
+          <li style="--c: var(--coral)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 9h12v5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5V9ZM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 2.5c0 1.5 1.5 1.5 1.5 3M12 2.5c0 1.5 1.5 1.5 1.5 3"/></svg></span><div><b>Coffee & pizza runs</b><span>Hot food, short fuse. Drive gently for a tip.</span></div></li>
+          <li style="--c: var(--aqua)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2.5 4.5 5.5v6c0 5 3.3 8.6 7.5 10 4.2-1.4 7.5-5 7.5-10v-6L12 2.5Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg></span><div><b>Police shift</b><span>Tackle, cuff, paperwork. No weapons, ever.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Friends -->
+<section class="sec" id="together" aria-labelledby="h-together">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="kicker c-aqua">Better with friends</span>
+      <h2 id="h-together">Bring the whole group chat</h2>
+      <p>Quick Match drops you into a live city. A private room gives your friends a six-letter code.</p>
+    </div>
+    <div class="together" data-reveal>
+      <div class="feat" style="--c: var(--aqua)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14a6.5 6.5 0 0 1 3.5 6"/></svg></span><h3>Quick Match</h3><p>Online in seconds. Bots fill any empty seats.</p></div>
+      <div class="feat" style="--c: var(--violet)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><h3>Private rooms</h3><p>Share a code like <b>ABC123</b>. Up to six friends.</p></div>
+      <div class="feat" style="--c: var(--yellow)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3.5"/></svg></span><h3>Nearby voice</h3><p>Talk to whoever's standing next to you — or call someone across town.</p></div>
+      <div class="feat" style="--c: var(--coral)"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M7 4h10v5a5 5 0 0 1-10 0V4ZM7 6H4v1.5A3.5 3.5 0 0 0 7.5 11M17 6h3v1.5a3.5 3.5 0 0 1-3.5 3.5M12 14v4M8 21h8"/></svg></span><h3>Top Players</h3><p>Every match adds XP. Sign in with Google to keep it on any phone.</p></div>
+    </div>
+    <div class="trailer" id="trailer" data-reveal>
+      <video controls preload="none" playsinline poster="/video/trailer-poster.jpg" width="1280" height="720" aria-label="ODDCITY trailer, 39 seconds">
+        <source src="/video/trailer-720.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- 12:00 AM — the reveal -->
+<section class="midnight" id="play" aria-labelledby="h-play">
+  <div class="dn" aria-hidden="true">
+    <picture><source type="image/avif" srcset="/img/downtown-rain-1280.avif 1280w, /img/downtown-rain-1920.avif 1920w, /img/downtown-rain-2560.avif 2560w" sizes="100vw"><img src="/img/downtown-rain-1920.webp" srcset="/img/downtown-rain-1280.webp 1280w, /img/downtown-rain-1920.webp 1920w, /img/downtown-rain-2560.webp 2560w" sizes="100vw" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture>
+  </div>
+  <div class="wrap">
+    <p class="time">Downtown · 12:00 AM</p>
+    <h2 id="h-play">It's midnight.<br>Time for the reveal.</h2>
+    <p>ODDCITY is in closed testing on Google Play. Send us your Google Play email and we'll add you to the test.</p>
+    <div class="cta">
+      <a class="btn" style="--c: var(--yellow)" href="mailto:info@wraplet.app?subject=ODDCITY%20closed%20test&amp;body=Please%20add%20me%20to%20the%20ODDCITY%20test.%20My%20Google%20Play%20email%20is%3A%20">Join the closed test</a>
+      <a class="btn ghost" href="/support.html">Questions? Support</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© 2026 Wraplet · ODDCITY · <a href="mailto:info@wraplet.app">info@wraplet.app</a></p>
+    <nav aria-label="Legal"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/delete-data.html">Delete my data</a><a href="/support.html">Support</a></nav>
+  </div>
+</footer>
 </body>
 </html>
