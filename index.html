@@ -17,11 +17,12 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" as="font" type="font/woff" href="/fonts/barlow-700.woff" crossorigin>
-<link rel="stylesheet" href="/style.css">
-<link rel="stylesheet" href="/hero.css">
+<link rel="stylesheet" href="/style.css?v=4">
+<link rel="stylesheet" href="/hero.css?v=4">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"ODDCITY","url":"https://oddcity.wraplet.app/","description":"A social party city: up to 10 players or bots, a secret mission each, one clock.","gamePlatform":"Android","applicationCategory":"Game","genre":["Party","Social","Open world"],"publisher":{"@type":"Organization","name":"Wraplet","email":"info@wraplet.app"},"image":"https://oddcity.wraplet.app/img/og.jpg"}</script>
-<script src="/app.js" defer></script>
-<script src="/hero.js" defer></script>
+<script src="/app.js?v=4" defer></script>
+<script src="/hero.js?v=4" defer></script>
+<script src="/films.js?v=4" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -157,34 +158,22 @@
     </div>
     <div class="districts">
       <div class="district" data-reveal>
-        <div class="dn">
-          <picture><source type="image/avif" srcset="/img/downtown-day-800.avif 800w, /img/downtown-day-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 58vw"><img src="/img/downtown-day-1400.webp" srcset="/img/downtown-day-800.webp 800w, /img/downtown-day-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 58vw" alt="Downtown avenue under the ODDCITY bridge" width="1400" height="788" loading="lazy" decoding="async"></picture>
-          <picture class="night" aria-hidden="true"><source type="image/avif" data-night="/img/downtown-night-800.avif 800w, /img/downtown-night-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 58vw"><img data-night="/img/downtown-night-800.webp 800w, /img/downtown-night-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 58vw" alt="" width="1400" height="788" loading="lazy" decoding="async"></picture>
-        </div>
+        <div class="dn film" data-film><video class="day" muted loop playsinline preload="none" poster="/img/clip-downtown_day.webp" data-src="/video/clip-downtown_day.mp4" aria-label="In-game film: gliding down the Downtown avenue under the ODDCITY bridge"></video><video class="night" muted loop playsinline preload="none" poster="/img/clip-downtown_night.webp" data-src="/video/clip-downtown_night.mp4" aria-hidden="true"></video></div>
         <div class="district-meta"><h3>Downtown</h3><span class="label">Bank · Shops · Taxis</span></div>
         <p>Where the money is, and where Noah refuses to go.</p>
       </div>
       <div class="district" data-reveal>
-        <div class="dn">
-          <picture><source type="image/avif" srcset="/img/park-day-800.avif 800w, /img/park-day-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 42vw"><img src="/img/park-day-1400.webp" srcset="/img/park-day-800.webp 800w, /img/park-day-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 42vw" alt="City Park with picnic tables and a food truck" width="1400" height="788" loading="lazy" decoding="async"></picture>
-          <picture class="night" aria-hidden="true"><source type="image/avif" data-night="/img/park-night-800.avif 800w, /img/park-night-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 42vw"><img data-night="/img/park-night-800.webp 800w, /img/park-night-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 42vw" alt="" width="1400" height="788" loading="lazy" decoding="async"></picture>
-        </div>
+        <div class="dn film" data-film><video class="day" muted loop playsinline preload="none" poster="/img/clip-park_day.webp" data-src="/video/clip-park_day.mp4" aria-label="In-game film: drifting across City Park past the picnic tables"></video><video class="night" muted loop playsinline preload="none" poster="/img/clip-park_night.webp" data-src="/video/clip-park_night.mp4" aria-hidden="true"></video></div>
         <div class="district-meta"><h3>City Park</h3><span class="label">Swings · Goals · Dog walks</span></div>
         <p>Swing higher, score a goal, lose the dog. Classic.</p>
       </div>
       <div class="district" data-reveal>
-        <div class="dn">
-          <picture><source type="image/avif" srcset="/img/avenue-day-800.avif 800w, /img/avenue-day-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 42vw"><img src="/img/avenue-day-1400.webp" srcset="/img/avenue-day-800.webp 800w, /img/avenue-day-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 42vw" alt="The long city avenue lined with palm trees" width="1400" height="788" loading="lazy" decoding="async"></picture>
-          <picture class="night" aria-hidden="true"><source type="image/avif" data-night="/img/avenue-night-800.avif 800w, /img/avenue-night-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 42vw"><img data-night="/img/avenue-night-800.webp 800w, /img/avenue-night-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 42vw" alt="" width="1400" height="788" loading="lazy" decoding="async"></picture>
-        </div>
+        <div class="dn film" data-film><video class="day" muted loop playsinline preload="none" poster="/img/clip-avenue_day.webp" data-src="/video/clip-avenue_day.mp4" aria-label="In-game film: rolling up the palm-lined avenue"></video><video class="night" muted loop playsinline preload="none" poster="/img/clip-avenue_night.webp" data-src="/video/clip-avenue_night.mp4" aria-hidden="true"></video></div>
         <div class="district-meta"><h3>The Avenue</h3><span class="label">Races · Couriers</span></div>
         <p>The fastest way across town. Zara knows every light.</p>
       </div>
       <div class="district" data-reveal>
-        <div class="dn">
-          <picture><source type="image/avif" srcset="/img/beach-day-800.avif 800w, /img/beach-day-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 58vw"><img src="/img/beach-day-1400.webp" srcset="/img/beach-day-800.webp 800w, /img/beach-day-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 58vw" alt="The beach district arch and boardwalk by the sea" width="1400" height="788" loading="lazy" decoding="async"></picture>
-          <picture class="night" aria-hidden="true"><source type="image/avif" data-night="/img/beach-night-800.avif 800w, /img/beach-night-1400.avif 1400w" sizes="(max-width: 860px) 100vw, 58vw"><img data-night="/img/beach-night-800.webp 800w, /img/beach-night-1400.webp 1400w" sizes="(max-width: 860px) 100vw, 58vw" alt="" width="1400" height="788" loading="lazy" decoding="async"></picture>
-        </div>
+        <div class="dn film" data-film><video class="day" muted loop playsinline preload="none" poster="/img/clip-beach_day.webp" data-src="/video/clip-beach_day.mp4" aria-label="In-game film: sliding along the Waterfront boardwalk by the sea"></video><video class="night" muted loop playsinline preload="none" poster="/img/clip-beach_night.webp" data-src="/video/clip-beach_night.mp4" aria-hidden="true"></video></div>
         <div class="district-meta"><h3>Waterfront</h3><span class="label">Street shows · Sunset</span></div>
         <p>Catch the sunset here when time runs out. Someone's secret depends on it.</p>
       </div>
@@ -200,7 +189,7 @@
       <h2 id="h-drive">Drive anything. Earn your way.</h2>
     </div>
     <div class="drive">
-      <div class="shot" data-reveal><picture><source type="image/avif" srcset="/img/shot-drive-720.avif 720w, /img/shot-drive-1200.avif 1200w" sizes="(max-width: 860px) 100vw, 55vw"><img src="/img/shot-drive-1200.webp" srcset="/img/shot-drive-720.webp 720w, /img/shot-drive-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 55vw" alt="Riding a scooter down a shopping street, steering wheel on the left of the screen" width="1200" height="540" loading="lazy" decoding="async"></picture></div>
+      <div class="shot film-shot" data-reveal><video class="loop" muted loop playsinline preload="none" poster="/img/clip-chase_day.webp" data-src="/video/clip-chase_day.mp4" width="1280" height="720" aria-label="In-game chase camera behind a car driving through the city"></video><span class="live" aria-hidden="true">IN-GAME CAMERA</span></div>
       <div data-reveal>
         <p class="label">Get in. Steer with the wheel.</p>
         <ul class="chips stagger" data-reveal aria-label="Vehicles">
@@ -244,9 +233,7 @@
 
 <!-- 12:00 AM — the reveal -->
 <section class="midnight" id="play" aria-labelledby="h-play">
-  <div class="dn" aria-hidden="true">
-    <picture><source type="image/avif" srcset="/img/downtown-rain-1280.avif 1280w, /img/downtown-rain-1920.avif 1920w, /img/downtown-rain-2560.avif 2560w" sizes="100vw"><img src="/img/downtown-rain-1920.webp" srcset="/img/downtown-rain-1280.webp 1280w, /img/downtown-rain-1920.webp 1920w, /img/downtown-rain-2560.webp 2560w" sizes="100vw" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture>
-  </div>
+  <div class="dn" aria-hidden="true"><img src="/img/clip-midnight_rain.webp" alt="" width="1280" height="720" loading="lazy" decoding="async"><video class="loop bg" muted loop playsinline preload="none" poster="/img/clip-midnight_rain.webp" data-src="/video/clip-midnight_rain.mp4"></video></div>
   <div class="wrap">
     <p class="time">Downtown · 12:00 AM</p>
     <h2 id="h-play">It's midnight.<br>Time for the reveal.</h2>
