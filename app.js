@@ -183,3 +183,12 @@ if (fine && !reduce) {
     el.addEventListener("pointerleave", () => { el.classList.remove("tilting"); el.style.setProperty("--rx", "0deg"); el.style.setProperty("--ry", "0deg"); });
   });
 }
+
+// Trailer: the vertical cut on portrait phones.
+const trailer = document.querySelector(".trailer video");
+if (trailer && matchMedia("(orientation: portrait) and (max-width: 760px)").matches) {
+  trailer.poster = trailer.dataset.posterV;
+  trailer.querySelector("source").src = trailer.dataset.srcV;
+  trailer.load();
+  trailer.parentElement.classList.add("vertical");
+}
