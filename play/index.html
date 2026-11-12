@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0b0e22">
+<title>Play ODDCITY in your browser</title>
+<meta name="description" content="Play ODDCITY free in your browser: a social party city where everyone has a secret. Solo city with bots; online rooms are in the Android app.">
+<link rel="icon" href="/favicon.png">
+<style>
+  @font-face { font-family: Barlow; font-weight: 700; src: url("/fonts/barlow-700.woff") format("woff"); font-display: swap; }
+  :root { --bg: #0b0e22; --aqua: #36d6c7; --yellow: #ffd166; --dim: #c9d2e3; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: #fff; overflow: hidden; font-family: Barlow, system-ui, sans-serif; }
+  #unity-canvas { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; display: block; background: var(--bg); outline: none; }
+  #loader { position: fixed; inset: 0; display: grid; place-content: center; justify-items: center; gap: 22px; padding: 16px; text-align: center;
+    background: radial-gradient(ellipse at 50% 40%, #241c5c 0%, var(--bg) 70%); transition: opacity .5s; }
+  #loader.done { opacity: 0; pointer-events: none; }
+  .logo { font-size: clamp(48px, 11vw, 112px); font-weight: 700; letter-spacing: .03em; line-height: 1; }
+  .logo b { color: var(--aqua); text-shadow: 0 0 30px rgb(54 214 199 / .6); }
+  .tag { color: var(--yellow); letter-spacing: .3em; font-size: clamp(12px, 2vw, 18px); font-weight: 700; }
+  .bar { width: min(420px, 80vw); height: 12px; border-radius: 99px; background: rgb(255 255 255 / .12); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; border-radius: 99px; background: linear-gradient(90deg, var(--aqua), var(--yellow)); transition: width .2s; }
+  #msg { color: var(--dim); font-size: 16px; max-width: 520px; line-height: 1.5; margin: 0; }
+  #msg a { color: var(--aqua); }
+  .ui { position: fixed; top: max(10px, env(safe-area-inset-top)); z-index: 5; display: flex; gap: 8px; }
+  .ui.l { left: 10px; } .ui.r { right: 10px; }
+  .ui a, .ui button { font: 700 13px Barlow, system-ui, sans-serif; letter-spacing: .08em; color: #fff; background: rgb(11 14 34 / .7); border: 1px solid rgb(255 255 255 / .2);
+    border-radius: 99px; padding: 8px 14px; text-decoration: none; cursor: pointer; backdrop-filter: blur(6px); }
+  .ui { transition: opacity .3s, transform .3s; }
+  /* In play the game's own top bar lives here: these hide a few seconds after load, back when the mouse touches the top edge. */
+  .playing .ui { opacity: 0; transform: translateY(-140%); pointer-events: none; }
+  .playing.peek .ui { opacity: 1; transform: none; pointer-events: auto; }
+  #rotate { position: fixed; inset: 0; z-index: 9; display: none; place-content: center; text-align: center; gap: 14px; background: var(--bg); padding: 24px; font-size: 22px; }
+  #rotate span { font-size: 64px; display: block; animation: turn 1.6s ease-in-out infinite; }
+  @keyframes turn { 50% { transform: rotate(-90deg); } }
+  @media (orientation: portrait) and (max-width: 900px) { #rotate { display: grid; } }
+</style>
+</head>
+<body>
+<canvas id="unity-canvas" tabindex="-1"></canvas>
+<div id="loader">
+  <div class="logo"><b>ODD</b>CITY</div>
+  <div class="tag">EVERYONE HAS A SECRET</div>
+  <div class="bar"><i id="fill"></i></div>
+  <p id="msg">Loading the city&hellip; the first visit takes a moment, then it's cached.</p>
+</div>
+<div class="ui l"><a href="/" aria-label="Back to the ODDCITY website">&larr; ODDCITY</a></div>
+<div class="ui r"><button id="fs" type="button">FULLSCREEN</button></div>
+<div id="rotate"><span aria-hidden="true">&#x1F4F1;</span>Turn your phone sideways to play</div>
+<script>
+  const canvas = document.querySelector("#unity-canvas");
+  const fill = document.querySelector("#fill"), msg = document.querySelector("#msg"), loader = document.querySelector("#loader");
+  const mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const config = {
+    arguments: [],
+    dataUrl: "Build/b7608e60fedf0cd77c29b7536f6a1fe2.data.unityweb",
+    frameworkUrl: "Build/513db0123fafe59f0beb4552afadef82.framework.js.unityweb",
+    codeUrl: "Build/b4701d7925ed82f509ad5f07b7e5f56a.wasm.unityweb",
+    streamingAssetsUrl: "StreamingAssets",
+    companyName: "OddCity Studio",
+    productName: "ODDCITY",
+    productVersion: "1.0.0",
+    // Sharpness vs speed: phones render at 1x, desktops at up to 1.5x.
+    devicePixelRatio: mobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5),
+  };
+  document.querySelector("#fs").onclick = () => {
+    const el = document.documentElement;
+    (el.requestFullscreen || el.webkitRequestFullscreen || (() => {})).call(el);
+    if (screen.orientation && screen.orientation.lock) screen.orientation.lock("landscape").catch(() => {});
+  };
+  const script = document.createElement("script");
+  script.src = "Build/a4867b85992aee1f879625bf8f72f284.loader.js";
+  script.onload = () => {
+    createUnityInstance(canvas, config, (p) => { fill.style.width = Math.round(p * 100) + "%"; })
+      .then((instance) => {
+        window.unityInstance = instance; loader.classList.add("done"); setTimeout(() => loader.remove(), 600); canvas.focus();
+        setTimeout(() => document.body.classList.add("playing"), 6000);
+        let peekT = 0;
+        addEventListener("mousemove", (e) => {
+          if (e.clientY > 44) return;
+          document.body.classList.add("peek"); clearTimeout(peekT);
+          peekT = setTimeout(() => document.body.classList.remove("peek"), 2500);
+        });
+      })
+      .catch((e) => { msg.innerHTML = "Sorry, ODDCITY couldn't start in this browser (" + String(e).slice(0, 120) +
+        "). Try the latest Chrome, Edge or Firefox on a computer, or <a href=\"/#play\">get the Android app</a>."; });
+  };
+  document.body.appendChild(script);
+</script>
+</body>
+</html>
