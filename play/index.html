@@ -53,9 +53,9 @@
   const mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const config = {
     arguments: [],
-    dataUrl: "Build/b7608e60fedf0cd77c29b7536f6a1fe2.data.unityweb",
+    dataUrl: "Build/c38e62c70860f710b85b2226450a9e52.data.unityweb",
     frameworkUrl: "Build/513db0123fafe59f0beb4552afadef82.framework.js.unityweb",
-    codeUrl: "Build/b4701d7925ed82f509ad5f07b7e5f56a.wasm.unityweb",
+    codeUrl: "Build/c60ed2370796709e052e3a6b5ca8d17e.wasm.unityweb",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "OddCity Studio",
     productName: "ODDCITY",
@@ -69,7 +69,7 @@
     if (screen.orientation && screen.orientation.lock) screen.orientation.lock("landscape").catch(() => {});
   };
   const script = document.createElement("script");
-  script.src = "Build/a4867b85992aee1f879625bf8f72f284.loader.js";
+  script.src = "Build/968828493291505a52149d825e2612c7.loader.js";
   script.onload = () => {
     createUnityInstance(canvas, config, (p) => { fill.style.width = Math.round(p * 100) + "%"; })
       .then((instance) => {
