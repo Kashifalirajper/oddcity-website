@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#0b0e22">
 <title>Play ODDCITY in your browser</title>
-<meta name="description" content="Play ODDCITY free in your browser: a social party city where everyone has a secret. Solo city with bots; online rooms are in the Android app.">
+<meta name="description" content="Play ODDCITY free in your browser: a social party city where everyone has a secret. Solo with bots or online with friends.">
 <link rel="icon" href="/favicon.png">
+<script src="/site-config.js?v=1"></script><script src="/site.js?v=1"></script>
 <style>
   @font-face { font-family: Barlow; font-weight: 700; src: url("/fonts/barlow-700.woff") format("woff"); font-display: swap; }
   :root { --bg: #0b0e22; --aqua: #36d6c7; --yellow: #ffd166; --dim: #c9d2e3; }
@@ -52,10 +53,10 @@
   const fill = document.querySelector("#fill"), msg = document.querySelector("#msg"), loader = document.querySelector("#loader");
   const mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const config = {
-    arguments: [],
-    dataUrl: "Build/c38e62c70860f710b85b2226450a9e52.data.unityweb",
-    frameworkUrl: "Build/513db0123fafe59f0beb4552afadef82.framework.js.unityweb",
-    codeUrl: "Build/c60ed2370796709e052e3a6b5ca8d17e.wasm.unityweb",
+    arguments: new URLSearchParams(location.search).get("profile") ? ["-oddcityAuthProfile", new URLSearchParams(location.search).get("profile")] : [],
+    dataUrl: "Build/de271b0dc05255aae6f387690308ac86.data.unityweb",
+    frameworkUrl: "Build/bace5353a98b9ba1bc38ade5e3cd3445.framework.js.unityweb",
+    codeUrl: "Build/c58d917fcc74e0539182d00250f5c36b.wasm.unityweb",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "OddCity Studio",
     productName: "ODDCITY",
@@ -69,11 +70,12 @@
     if (screen.orientation && screen.orientation.lock) screen.orientation.lock("landscape").catch(() => {});
   };
   const script = document.createElement("script");
-  script.src = "Build/968828493291505a52149d825e2612c7.loader.js";
+  script.src = "Build/7c051a2ab0952650226155ca7ca2261c.loader.js";
   script.onload = () => {
     createUnityInstance(canvas, config, (p) => { fill.style.width = Math.round(p * 100) + "%"; })
       .then((instance) => {
         window.unityInstance = instance; loader.classList.add("done"); setTimeout(() => loader.remove(), 600); canvas.focus();
+        if (window.oddcityTrack) window.oddcityTrack("game_loaded", { load_seconds: Math.round(performance.now() / 1000), mobile });
         setTimeout(() => document.body.classList.add("playing"), 6000);
         let peekT = 0;
         addEventListener("mousemove", (e) => {
