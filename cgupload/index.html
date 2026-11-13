@@ -63,12 +63,21 @@
     },
   };
   window.oddcityTrack = () => {};
+  // Multiplayer for WebPortal.cs: INVITE button with the private room code, invite links (?room=CODE), instant multiplayer.
+  let sdkUp = false;
+  sdkReady.then((ok) => { sdkUp = ok; });
+  window.oddcityPortal = {
+    inviteParam: (name) => { try { return (sdkUp && sdk().game.getInviteParam(name)) || new URLSearchParams(location.search).get(name) || ""; } catch (e) { return ""; } },
+    instant: () => { try { return sdkUp && !!sdk().game.isInstantMultiplayer; } catch (e) { return false; } },
+    showInvite: (room) => sdkReady.then((ok) => { if (ok) try { sdk().game.showInviteButton({ room }); } catch (e) {} }),
+    hideInvite: () => sdkReady.then((ok) => { if (ok) try { sdk().game.hideInviteButton(); } catch (e) {} }),
+  };
 
   const config = {
     arguments: [],
-    dataUrl: "Build/a10e7ff080af1cf0e590a4a792819711.data.unityweb",
-    frameworkUrl: "Build/bace5353a98b9ba1bc38ade5e3cd3445.framework.js.unityweb",
-    codeUrl: "Build/a68613a3cbfde2fa5c6af3a1d6dbeb56.wasm.unityweb",
+    dataUrl: "Build/c264e0cee996062fc9b30e0a908ea04b.data.unityweb",
+    frameworkUrl: "Build/7a602b26e547878197e416ee8110b3a2.framework.js.unityweb",
+    codeUrl: "Build/2d8b7011705a948d901de2db80773dc6.wasm.unityweb",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "OddCity Studio",
     productName: "ODDCITY",
