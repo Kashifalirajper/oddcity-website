@@ -1,8 +1,0 @@
-Build/0c8c6b4aec117cfb3ba725f5dba5ebd2.loader.js
-Build/0e321494231c98dbb0ad408edf41188e.framework.js.unityweb
-Build/5aae4b23a4ebdee2fecca6de5409408e.wasm.unityweb
-Build/60995cc060d711e6e1fcfd08ebdb10f1.data.unityweb
-files.txt
-index.html
-StreamingAssets/UnityServicesProjectConfiguration.json
-TemplateData/barlow-700.woff
