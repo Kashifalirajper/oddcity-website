@@ -54,9 +54,9 @@
   const mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   const config = {
     arguments: new URLSearchParams(location.search).get("profile") ? ["-oddcityAuthProfile", new URLSearchParams(location.search).get("profile")] : [],
-    dataUrl: "Build/f75e3d4650c9065d7d3b77a941594a31.data.unityweb",
-    frameworkUrl: "Build/0e321494231c98dbb0ad408edf41188e.framework.js.unityweb",
-    codeUrl: "Build/40b87199599bf3e0ef4aca080c210cd9.wasm.unityweb",
+    dataUrl: "Build/a601851c6d45328458eb542675599c95.data.unityweb",
+    frameworkUrl: "Build/e7f4f652380fcb0dc0b59609d40fd7aa.framework.js.unityweb",
+    codeUrl: "Build/900f1dbbf4c1cbdcd1f8881e704d12a6.wasm.unityweb",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "OddCity Studio",
     productName: "ODDCITY",
@@ -70,7 +70,7 @@
     if (screen.orientation && screen.orientation.lock) screen.orientation.lock("landscape").catch(() => {});
   };
   const script = document.createElement("script");
-  script.src = "Build/7c051a2ab0952650226155ca7ca2261c.loader.js";
+  script.src = "Build/2d3c2cc59c6132b6b621d11d3cdf11ee.loader.js";
   script.onload = () => {
     createUnityInstance(canvas, config, (p) => { fill.style.width = Math.round(p * 100) + "%"; })
       .then((instance) => {
