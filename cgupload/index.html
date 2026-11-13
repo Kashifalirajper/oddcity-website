@@ -44,8 +44,11 @@
   const sdkReady = (async () => { try { if (sdk()) await sdk().init(); return !!sdk(); } catch (e) { return false; } })();
 
   // Ads for WebAds.cs: "reward" = rewarded video, done(true) only when it finished; "next" = between-match (midgame) ad.
+  // CrazyGames allows no ads during Basic launch: keep false until the game is promoted to Full launch, then set true and rebuild
+  // (Tools > ODDCITY > Build Web (CrazyGames)). false = every "watch ad" offer is hidden in the game.
+  const ADS_ENABLED = false;
   window.oddcityAds = {
-    ready: true,
+    ready: ADS_ENABLED,
     show(kind, done) {
       let over = false;
       const end = (ok) => { if (!over) { over = true; done(ok); } };
@@ -75,9 +78,9 @@
 
   const config = {
     arguments: [],
-    dataUrl: "Build/c264e0cee996062fc9b30e0a908ea04b.data.unityweb",
-    frameworkUrl: "Build/7a602b26e547878197e416ee8110b3a2.framework.js.unityweb",
-    codeUrl: "Build/2d8b7011705a948d901de2db80773dc6.wasm.unityweb",
+    dataUrl: "Build/60995cc060d711e6e1fcfd08ebdb10f1.data.unityweb",
+    frameworkUrl: "Build/0e321494231c98dbb0ad408edf41188e.framework.js.unityweb",
+    codeUrl: "Build/5aae4b23a4ebdee2fecca6de5409408e.wasm.unityweb",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "OddCity Studio",
     productName: "ODDCITY",
